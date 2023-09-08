@@ -6,9 +6,9 @@
     function shortenFirstName() {
         var fname = document.getElementsByClassName("fname");
         for (var i = 0; i < fname.length; i++) {
-            var name = fname[i].innerHTML;
-            var names = name.split(" ");
-            var shortName = names[0].charAt(0) + ". " + names[1];
+            const name = fname[i].innerHTML;
+            const names = name.split(" ");
+            const shortName = names[0].charAt(0) + ". " + names[1];
             fname[i].innerHTML = shortName;
         }
     }
