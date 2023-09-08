@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block title %}{{ show.title }}{% endblock %}
+{% block content %}
+
+<script>
+    function shortenFirstName() {
+        var fname = document.getElementsByClassName("fname");
+        for (var i = 0; i < fname.length; i++) {
+            var name = fname[i].innerHTML;
+            var names = name.split(" ");
+            var shortName = names[0].charAt(0) + ". " + names[1];
+            fname[i].innerHTML = shortName;
+        }
+    }
+</script>
+
+<div class="card">
+    <h2>Cast</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Actor</th>
+                <th>Played character</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for actor in actors %}
+            <tr>
+                <td>
+                    <a class="fname" href="/actor/{{ actor.id }}">{{ actor.name }}</a>
+                </td>
+                <td>{{ actor.character_name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div style="margin-top: 1em">
+        <button onclick="shortenFirstName()">Shorten first name</button>
+    </div>
+</div>
+{% endblock %}
